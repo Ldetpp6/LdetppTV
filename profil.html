@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mes Profils</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #000000, #0a0a2a);
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    #listeProfils {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mes Profils</h1>
+
+  <!-- Zone création profil -->
+  <input type="text" id="nomProfil" placeholder="Nom du profil">
+  <button onclick="creerProfil()">Créer profil</button>
+
+  <!-- Liste des profils -->
+  <div id="listeProfils">
+    <!-- Les profils créés apparaîtront ici -->
+  </div>
+
+  <script>
+    function creerProfil() {
+      const input = document.getElementById('nomProfil');
+      const nom = input.value.trim();
+      if (nom !== "") {
+        const div = document.getElementById('listeProfils');
+        const p = document.createElement('p');
+        p.textContent = nom;
+        div.appendChild(p);
+        input.value = ""; // vide le champ après ajout
+      } else {
+        alert("Écris un nom avant de créer un profil !");
+      }
+    }
+  </script>
+</body>
+</html>
